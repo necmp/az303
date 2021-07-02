@@ -39,7 +39,7 @@ echo "仮想ネットワーク" LocalNet$num "を作成します..."
 az network vnet create \
   --name LocalNet$num \
   --resource-group RG$num \
-  --address-prefixes 192.168.0.0/16 \
+  --address-prefixes 192.168.0.0/24 \
   --subnet-name Frontend \
   --subnet-prefixes 192.168.0.0/24 \
   --output table
