@@ -44,7 +44,7 @@ az network vnet create \
   --subnet-prefixes 192.168.0.0/24 \
   --output table
 
-# 仮想マシンの作成
+# 仮想マシン1の作成
 echo "仮想マシン" VPNDevice$num "を作成します..."
 az vm create \
     --resource-group RG$num \
@@ -56,6 +56,19 @@ az vm create \
     --vnet-name LocalNet$num \
     --subnet Frontend \
     --custom-data ./clouddrive/az303/cloud-init01.txt \
+    --output table
+
+# 仮想マシン1の作成
+echo "仮想マシン" TESTVM$num "を作成します..."
+az vm create \
+    --resource-group RG$num \
+    --name TESTVM$num \
+    --image UbuntuLTS \
+    --size Standard_B1ms \
+    --admin-username admin$num \
+    --admin-password 'Pa$$w0rd1234' \
+    --vnet-name VNet$num \
+    --subnet Frontend \
     --output table
 
 # 終了メッセージ
