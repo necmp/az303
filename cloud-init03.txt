@@ -1,0 +1,18 @@
+#cloud-config
+package_upgrade: true
+packages: 
+  - python3-pip
+write_files:
+    - path: /lab/liststorage.py 
+      content: |
+        import os, random
+        from azure.identity import ManagedIdentityCredential
+        from azure.mgmt.storage import StorageManagementClient
+        credential = ManagedIdentityCredential()
+        subscription_id = "<your-subscription-id>"
+        resource_client = StorageManagementClient(credential, subscription_id)
+        for item in resource_client.storage_accounts.list():
+            print(item.name)
+runcmd: 
+  - pip3 install azure-identity
+  - pip3 install azure-mgmt-storage
