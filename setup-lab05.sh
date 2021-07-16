@@ -2,7 +2,7 @@
 
 # 開始メッセージ
 echo;
-printf "\e[33;1m----- NECMP AZ303 Training / Lab04 Setup -----\e[m"
+printf "\e[33;1m----- NECMP AZ303 Training / Lab05 Setup -----\e[m"
 echo;
 echo;
 echo -n "あなたの <受講者番号> を入力してください = "
